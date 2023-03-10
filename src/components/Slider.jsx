@@ -1,4 +1,4 @@
-export default function slider({ min, max, label, value, setValue }) {
+export default function Slider({ min, max, label, value, setValue }) {
 
   return (
     <>

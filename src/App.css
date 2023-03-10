@@ -1,7 +1,76 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*https://codepen.io/okke_harsta/pen/yOLjxW - Radio button */
+.app {
+  background-color: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.container {
+  display: flex;
+  width: 56rem;
+  height: 37rem;
+  border: 0.125rem solid gray;
+}
+.container svg {
+  flex: 0.6; /* 60% of the container */
+  width: 100%;
+  height: 100%;
+}
+.container .settings {
+  flex: 0.4; /* 40% of the container */
+  padding: 1rem;
+  height: 100%;
+}
+.settings div {
+  margin-bottom: 1.25rem;
+}
+.settings div p {
+  margin-bottom: 0.3rem;
+}
+.settings div select {
+  width: 100%;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.radioElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.radioGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem;
+  background-color: lightgray;
+  border-radius: 0.6rem;
+}
+.slider {
+  width: 100%;
+}
+
+.resetContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+  background-color: lightgray;
+  width: auto;
+  padding: 1.25rem;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+.resetContainer button {
+  padding: 1rem 1.25rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: gray;
+  cursor: pointer;
+  color: white;
+}

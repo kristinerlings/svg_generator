@@ -4,7 +4,7 @@ import Radio from './Radio';
 const RadioGroup = ({options}) => {
   
   return (
-    <div>
+    <div className='radioGroup'>
       {options.map((radioOption,i) => (
         <Radio
           text={radioOption.text}

@@ -6,12 +6,12 @@ const Radio = ({text, changeHandler, name }) => {
   
   return (
     <>
-      <label>
+      <label className="radioElement">
+        <input type="radio" name={name} onChange={changeHandler} />
         <span>{text}</span>
-        <input type="radio" name={name} onChange={changeHandler}/>
       </label>
     </>
-  )
+  );
 }
 
 export default Radio;
