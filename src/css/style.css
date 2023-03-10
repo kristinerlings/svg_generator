@@ -1,0 +1,68 @@
+/*=======================================
+      1. Global Style
+=========================================*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+/*   height: 100vh; */
+  width: 100vw; 
+  font-family: Arial, Helvetica, sans-serif;
+  padding: .8rem;
+  margin: 0 auto;
+  background-color: rgb(146, 118, 118); 
+}
+
+:root {
+}
+
+
+/*=======================================
+       2. Typography
+=========================================*/
+
+
+/*=======================================
+       3.  Layout
+=========================================*/
+.canvas{
+  width: 40rem; 
+  height: 20rem; 
+  background: hsl(0, 0%, 52%);
+}
+ 
+.container__main{
+ /*  display:flex;
+  justify-content: center;
+  align-items: center; */
+  display:grid;
+  grid-template-columns: repeat(6, repeat 1fr);
+  column-gap: 1.25rem; 
+
+}
+
+.canvas{
+  grid-column: 2/5;
+}
+
+.container__svg{
+  grid-column: 5/7;
+  display:grid;
+  grid-template-rows: auto;
+}
+
+
+/*checkbox - hide */
+input[type="checkbox"]{
+  position:absolute;
+  opacity:0;
+}
+
+.svg__style{
+  display:flex; 
+}
+
