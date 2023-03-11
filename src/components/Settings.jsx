@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import RadioGroup from './RadioGroup';
+import Slider from './Slider';
 
-const Settings = () => {
+const Settings = ({ params, updateParams }) => {
   const [animation, setAnimation] = useState(false);
-
+  const defaultParams = {
+    animation: false,
+    style: 'solid',
+    distortion: 0,
+  };
   const options = [
-    { text: 'No Stroke', handler: () => console.log(false) },
-    { text: 'Stroke', handler: () => console.log(true) },
-    { text: 'Thin Stroke', handler: () => console.log('thin') },
+    {
+      text: 'Solid',
+      handler: () => updateParams((params) => ({ ...params, style: 'solid' })),
+    },
+    {
+      text: 'Gradients',
+      handler: () =>
+        updateParams((params) => ({ ...params, style: 'gradient' })),
+    },
+    {
+      text: 'Pattern',
+      handler: () =>
+        updateParams((params) => ({ ...params, style: 'pattern' })),
+    },
   ];
 
   return (
     <div className="settings">
       <div>
         <p>Animation</p>
-        <select name="aniimation">
+        <select name="animation">
           <option value="no-animation">No Animation</option>
           <option value="animation">Animation</option>
         </select>
@@ -25,11 +41,24 @@ const Settings = () => {
         <RadioGroup options={options} />
       </div>
       <div>
-        <p>Distortion</p>
-        <input className='slider' type="range" min="1" max="100" />
+        <Slider
+          min={0}
+          max={100}
+          label={'Distortion'}
+          value={params.distortion}
+          setValue={(newDistort) =>
+            updateParams((params) => ({ ...params, distortion: newDistort }))
+          }
+        />
       </div>
-      <div className='resetContainer'>
-        <button>Resset</button>
+      <div className="resetContainer">
+        <button
+          onClick={(e) => {
+            updateParams(defaultParams);
+          }}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );

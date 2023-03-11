@@ -1,17 +1,21 @@
 import { useState } from 'react'
-/* import reactLogo from './assets/react.svg' */
 import './App.css'
 import Settings from './components/Settings';
 import SvgDrawing from './components/SvgDrawing';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [filterParams, setFilterParams] = useState({
+    animation: false ,
+    style: 'solid',
+    distortion: 0,
+  });
 
   return (
     <div className="app">
       <div className='container'>
-        <SvgDrawing />
-        <Settings />
+        <SvgDrawing params={filterParams}/>
+        <Settings params={filterParams} updateParams={setFilterParams} />
       </div>
     </div>
   )
