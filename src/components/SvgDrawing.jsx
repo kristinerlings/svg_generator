@@ -7,7 +7,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
     yCoord: ['222', '220', '75', '16'],
   });
 
-  //colours -> style: gradient vs solid
+  //Fill color for each shape
   const [fill1, setFill1] = useState();
   const [fill2, setFill2] = useState();
   const [fill3, setFill3] = useState();
@@ -15,7 +15,6 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
   const colors = ['#d2bca9', '#8eb6bc', '#d2dbd7', '#bec4aa'];
 
   //useEffect : https://dev.to/hajarnasr/react-hooks-useeffect-1816
-  //render on style change only
   useEffect(() => {
     // block
     switch (style) {
@@ -31,26 +30,14 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
         setFill3(`url(#Gradient3)`);
         setFill4(`url(#Gradient4)`);
         break;
-      //default:
-      // break;
+      case 'Pattern':
+        setFill1(`url(#pattern-chevron)`);
+        setFill2(`url(#pattern-chevron)`);
+        setFill3(`url(#pattern-chevron)`);
+        setFill4(`url(#pattern-chevron)`);
+        break;
     }
-  }, [style]); //dependency array -> tell react it only needs to run useEffect when style changes. React starts by checking the value of the dependency array. If the value has changed, it will run the effect. If the value has not changed, it will skip the effect.
-
-  //m = coordinates (relative to the previous point in the path)
-  //c = cubic bezier curves
-  //s = smooth cubic bezier curves
-  //z = close path
-
-  /* const random = () => Math.round(Math.random() * 4); */ //generate different value every time I call it -> need to find a way not to change each time i change the distortion. TrieduseMemo and useCallback. Didnt'work
-
-  //const randomX = () => Math.round(Math.random() * 200); // bug => calls the function every time it re-renderd. Fix= make it a state, not a function
-  //const randomY = () => Math.round(Math.random() * 200); random()
-
-  /**
-   * baseFreq [0.5, 0.25] - the smaller the more distortion
-   * baseFreq = (100 - distsortion) / 100
-   * needs to be fractional value, as I increase the distortion it gets larger and larger but I want it to be the opposite, want it to be smaller and smaller. That's why I take 100 - distortion to get a smaller value - the fraction gets smaller.
-   */
+  }, [style]); //dependency array - only re-render when style changes
 
   return (
     <svg viewBox="0 0 550 500">
@@ -72,44 +59,32 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           <stop offset="50%" stopColor={colors[3]} />
         </linearGradient>
       </defs>
-      {/*   <!-- Define the pattern --> */}
-      {/*    https://css-tricks.com/snippets/svg/svg-patterns/ */}
+      {/*  Pattern : https://css-tricks.com/snippets/svg/svg-patterns/ */}
       <pattern
         id="pattern-chevron"
         x="0"
         y="0"
         patternUnits="userSpaceOnUse"
-        width="100"
-        height="180"
+        width="20"
+        height="30"
         viewBox="0 0 10 18"
       >
         {/* <!-- Group the chevron shapes --> */}
         <g id="chevron">
-          {/*   <!-- Chevron consists of two shapes, a left and a right to form a `v` -->
-       <!-- We'll apply the `fill` in the CSS for flexibility --> */}
-          <path className="pattern left" d="M0 0l5 3v5l-5 -3z"></path>
+          <path className="pattern left" d="M5 0l5 3v5l-5 -3z"></path>
           <path className="pattern right" d="M10 0l-5 3v5l5 -3"></path>
         </g>
-
-        {/*   <!-- Apply the shapes -->
-     <!-- `y="9"` narrows the space between rows  --> */}
+        {/* <!-- Use the pattern --> */}
         <use x="0" y="9" xlinkHref="#chevron"></use>
       </pattern>
-      {/*       https://css-tricks.com/creating-patterns-with-svg-filters/ */}
-      {/* <filter id="turbulanceEffect">
-        <feTurbulence
-          baseFrequency="0.003"
-          type="fractalNoise"
-          numOctaves="3"
-        />
-      </filter> */}
+
+      {/* distortion filter  */}
       <filter id="displacementFilter">
         <feTurbulence
           type="turbulence"
-          baseFrequency={(101 - parameter.distortion) / 100} //not sure why, but by doing 101 instead of 100, it works better (it doesn't end being 0)
-          // calculate numOctaves based on distortion
-          numOctaves={Math.round(parameter.distortion)} //get round number of octaves
-          /* numOctaves="4" */
+          baseFrequency={(101 - parameter.distortion) / 100}
+          // calculate numOctaves based on distortion value
+          numOctaves={Math.round(parameter.distortion)}
           seed={parameter.distortion}
           result="turbulence"
         />
@@ -121,17 +96,14 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           yChannelSelector="G"
         />
       </filter>
-      {/* <rect width="100%" height="100%" filter="url(#turbulanceEffect)" /> */}
       <g
         id="blob__one"
         data-name="blob1"
-        /* filter="url(#turbulanceEffect)" */
         transform={`translate(${randomX / 2} ${randomY + 200})`}
       >
         <path
           className="cls-1"
           d={`m200,222c-90.37,5.19-126.13,28.84-137.34,38.78-4.89,4.34-10.1,8.31-15.61,11.84-117.58,75.19-103.01,3.21-129.91-77.48-15.98-47.94,2.88-92.37,21.73-121.41,16.66-25.67,42.21-44.39,71.78-52.29s67.4-10.77,104.63,9.47c71.49,38.86,116.49,4.44,172.1,46.8,55.6,42.36,27.8,137.67-87.37,144.29Z`}
-          /*  filter='url(#displacementFilter)'  */
           filter="url(#displacementFilter)"
           fill={fill1}
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
@@ -141,7 +113,6 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           d={`m${coords.xCoord[0] - 16},${
             coords.yCoord[0] - 12
           }c-90.37,5.19-126.13,28.84-137.34,38.78-4.89,4.34-10.1,8.31-15.61,11.84-117.58,75.19-103.01,3.21-129.91-77.48-15.98-47.94,2.88-92.37,21.73-121.41,16.66-25.67,42.21-44.39,71.78-52.29,28.62-7.64,67.4-10.77,104.63,9.47,71.49,38.86,116.49,4.44,172.1,46.8,55.6,42.36,27.8,137.67-87.37,144.29Z`}
-          /* filter="url(#turbulanceEffect)" */
           fill={'none'}
           stroke={'#636363'}
           strokeMiterlimit={10}
@@ -163,10 +134,6 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
         <path
-          /*{`m${'339.5'},${'204.12'} */
-          /*{`m${coords.xCoord[1] - 16},${
-            coords.yCoord[1] - 16
-          } */
           className="cls-2"
           d="m518.81,68.04c-.16.61-.3,1.15-.55,1.9-14.33,44.16-50.4,77.88-95.5,89.17l-176.43,44.17c-20.39,5.11-41.69,5.38-62.19.78l-145.04-32.46c-33-7.39-47.13-37.65-27.91-59.77l37.37-43.03S78.14,14.5,224.28,6.76c145.37-7.69,313.77-13.32,294.53,61.27Z"
           fill={'none'}
@@ -208,7 +175,6 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
         <path
           className="cls-1"
           d={`m196.64,29.75c-24.51-10.61-51.19-15.2-77.87-14.09-35.89,1.49-86.36,11.66-95.15,56.03-13.89,70.14,53.23,94.55,16.2,173.75-37.03,79.21-6.94,150.95,64.8,109.29,66.88-38.84,254.45-254.68,92.02-324.98Z`}
-          /* fill={'#d2dbd7'} */
           fill={fill4}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}

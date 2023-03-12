@@ -93,3 +93,7 @@
 button:hover {
   background-color: rgb(128, 128, 128);
 }
+
+.pattern {
+  background-color: pink;
+}
