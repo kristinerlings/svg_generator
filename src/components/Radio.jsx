@@ -1,7 +1,5 @@
 import React from 'react'
 
-/*create group radio btns: pass in as an array */
-
 const Radio = ({text, changeHandler, name, value, style }) => {
   return (
     <>
@@ -14,7 +12,3 @@ const Radio = ({text, changeHandler, name, value, style }) => {
 }
 
 export default Radio;
-
-/* Radio.propTypes = {
-  name: PropTypes.string.isRequired
-} */

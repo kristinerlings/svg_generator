@@ -31,9 +31,9 @@ const Settings = ({
   return (
     <div className="settings">
       <div>
-        <p>Animation</p>
+        <p>Rotation</p>
         <select name="animation" onChange={(e) => setAnimation(e.target.value)}>
-          <option value="0deg">No Animation</option>
+          <option value="0deg">Rotation</option>
           <option value="45deg">45 Deg Rotate</option>
           <option value="-10deg">-10 Deg Rotate</option>
         </select>

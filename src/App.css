@@ -1,4 +1,5 @@
 /*https://codepen.io/okke_harsta/pen/yOLjxW - Radio button */
+
 .app {
   background-color: #232823;
   height: 100vh;
@@ -6,11 +7,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'greycliff-cf', sans-serif;
 }
-.title{
-  padding:1rem;
-  font-size: 2.5rem; 
-    color: rgb(175, 193, 175);
+.title {
+  padding: 1rem;
+  font-size: 2.3rem;
+  color: rgb(175, 193, 175);
+  font-weight: 600;
 }
 .container {
   background-color: rgb(240, 238, 238);
@@ -18,11 +21,11 @@
   width: 80%;
   height: 37rem;
   border: 0.125rem solid gray;
-  color:rgb(37, 39, 37);
+  color: rgb(37, 39, 37);
   font-size: 1.1rem;
   border-radius: 0.6rem;
-
 }
+
 .container svg {
   flex: 0.6; /* 60% of the container */
   width: 100%;
@@ -82,11 +85,11 @@
   border: none;
   border-radius: 0.3rem;
   background-color: #606b60;
-  
+
   cursor: pointer;
   color: white;
 }
 
-button:hover{
+button:hover {
   background-color: rgb(128, 128, 128);
 }

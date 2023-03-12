@@ -12,7 +12,7 @@ const RadioGroup = ({options, style}) => {
           name="style"
           value={radioOption.text}
           changeHandler={(e) => radioOption.handler(e)}
-          key={i} //unique key  - always use a key when I map
+          key={i} 
         />
      ))}
     </div>

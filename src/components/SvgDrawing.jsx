@@ -53,7 +53,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
    */
 
   return (
-    <svg viewBox="0 0 600 600">
+    <svg viewBox="0 0 550 500">
       <defs>
         <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="gray" />
@@ -95,7 +95,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
      <!-- `y="9"` narrows the space between rows  --> */}
         <use x="0" y="9" xlinkHref="#chevron"></use>
       </pattern>
-{/*       https://css-tricks.com/creating-patterns-with-svg-filters/ */}
+      {/*       https://css-tricks.com/creating-patterns-with-svg-filters/ */}
       {/* <filter id="turbulanceEffect">
         <feTurbulence
           baseFrequency="0.003"
@@ -145,7 +145,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           fill={'none'}
           stroke={'#636363'}
           strokeMiterlimit={10}
-          strokeWidth={'5px'}
+          strokeWidth={'4px'}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
@@ -172,7 +172,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
           fill={'none'}
           stroke={'#636363'}
           strokeMiterlimit={10}
-          strokeWidth={'5px'}
+          strokeWidth={'4px'}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
@@ -180,26 +180,22 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
       <g
         id="blob__three"
         data-name="blob3"
-        transform={`translate(${randomX} ${randomX - 200})`}
+        transform={`translate(${randomX - 300} ${randomY - 200})`}
       >
         <path
           className="cls-1"
-          d={`m${coords.xCoord[2]},${
-            coords.yCoord[2]
-          },c-.13.5-.25.95-.45,1.57-11.84,36.47-41.63,${'64.32'}-78.87,73.64l-145.71,${'36.47'}c-16.84,4.22-34.43,4.44-51.36.65l-119.78-26.8c-27.25-6.1-38.92-31.09-23.05-49.36l30.86-35.54s24.44-44.85,145.12-51.24c120.05-6.35,259.13-11,243.24,50.6Z`}
+          d={`m531.08,90c-.16.61-.3,1.15-.55,1.9-14.33,44.16-50.4,77.88-95.5,89.17l-176.43,44.17c-20.39,5.11-41.69,5.38-62.19.78l-145.04-32.46c-33-7.39-47.13-37.65-27.91-59.77l37.37-43.03s29.59-54.31,175.72-62.04c145.37-7.69,313.77-13.32,294.53,61.27Z`}
           fill={fill3}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
         <path
           className="cls-2"
-          d={`m${coords.xCoord[2] - 13},${
-            coords.yCoord[2] - 7
-          }c-.13.5-.25.95-.45,1.57-11.84,36.47-41.63,${'64.32'}-78.87,73.64l-145.71,${'36.47'}c-16.84,4.22-34.43,4.44-51.36.65l-119.78-26.8c-27.25-6.1-38.92-31.09-23.05-49.36l30.300.54S64.97,12.41,185.66,6.02C305.71-.33,${'444.79'}-4.98,428.9,56.63Z`}
+          d={`m518.81,68.04c-.16.61-.3,1.15-.55,1.9-14.33,44.16-50.4,77.88-95.5,89.17l-176.43,44.17c-20.39,5.11-41.69,5.38-62.19.78l-145.04-32.46c-33-7.39-47.13-37.65-27.91-59.77l37.37-43.03S78.14,14.5,224.28,6.76c145.37-7.69,313.77-13.32,294.53,61.27Z`}
           fill={'none'}
           stroke={'#636363'}
           strokeMiterlimit={10}
-          strokeWidth={'5px'}
+          strokeWidth={'4px'}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
@@ -207,13 +203,11 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
       <g
         id="blob__four"
         data-name="blob4"
-        transform={`translate(${randomX} ${randomX})`}
+        transform={`translate(${randomX + 400} ${randomY})`}
       >
         <path
           className="cls-1"
-          d={`m${coords.xCoord[3]},${
-            coords.yCoord[3]
-          }c-12-5.19-25.06-7.44-38.12-6.9-17.57.73-42.28,5.71-46.58,27.43-6.8,${'34'},26.06,46.28,7.93,85.06-18.13,38.77-3.4,73.89,31.72,53.5,32.74-19.01,124.56-124.67,45.05-159.09Z`}
+          d={`m196.64,29.75c-24.51-10.61-51.19-15.2-77.87-14.09-35.89,1.49-86.36,11.66-95.15,56.03-13.89,70.14,53.23,94.55,16.2,173.75-37.03,79.21-6.94,150.95,64.8,109.29,66.88-38.84,254.45-254.68,92.02-324.98Z`}
           /* fill={'#d2dbd7'} */
           fill={fill4}
           filter="url(#displacementFilter)"
@@ -221,13 +215,11 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
         />
         <path
           className="cls-2"
-          d={`m${coords.xCoord[3] - 15},${
-            coords.yCoord[3] - 6.3
-          }c-12-5.19-25.06-7.44-38.12-6.9C32.45,3.31,7.74,${'8.29'},3.44,30.01c-6.8,34.33,26.06,46.28,7.93,85.06-18.13,38.77-3.4,73.89,31.72,53.5,32.74-19.01,124.56-124.67,45.05-159.09Z`}
+          d={`m177.44,16.75C152.93,6.15,126.25,1.56,99.57,2.66,63.68,4.15,13.21,14.32,4.42,58.69c-13.89,70.14,53.23,94.55,16.2,173.75-37.03,79.21-6.94,150.95,64.8,109.29,66.88-38.84,254.45-254.68,92.02-324.98Z`}
           fill={'none'}
           stroke={'#636363'}
           strokeMiterlimit={10}
-          strokeWidth={'5px'}
+          strokeWidth={'4px'}
           filter="url(#displacementFilter)"
           style={{ rotate: animation, transition: 'all 0.5s ease-in-out' }}
         />
