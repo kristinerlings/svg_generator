@@ -7,13 +7,21 @@
   justify-content: center;
   align-items: center;
 }
-
+.title{
+  padding:1rem;
+  font-size: 2.5rem; 
+    color: rgb(175, 193, 175);
+}
 .container {
   background-color: rgb(240, 238, 238);
   display: flex;
   width: 80%;
   height: 37rem;
   border: 0.125rem solid gray;
+  color:rgb(37, 39, 37);
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+
 }
 .container svg {
   flex: 0.6; /* 60% of the container */
@@ -73,11 +81,12 @@
   padding: 1rem 1.25rem;
   border: none;
   border-radius: 0.3rem;
-  background-color: gray;
+  background-color: #606b60;
+  
   cursor: pointer;
   color: white;
 }
 
 button:hover{
-  background-color: #606b60;
+  background-color: rgb(128, 128, 128);
 }

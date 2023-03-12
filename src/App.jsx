@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="app">
+      <h1 className="title">Blob Generator</h1>
       <div className="container">
         <SvgDrawing animation={animation} style={style} randomY={randomY} randomX={randomX} parameter={distortionParameter} />
         <Settings
