@@ -1,6 +1,6 @@
 /*https://codepen.io/okke_harsta/pen/yOLjxW - Radio button */
 .app {
-  background-color: #f5f5f5;
+  background-color: #232823;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,8 +9,9 @@
 }
 
 .container {
+  background-color: rgb(240, 238, 238);
   display: flex;
-  width: 56rem;
+  width: 80%;
   height: 37rem;
   border: 0.125rem solid gray;
 }
@@ -21,10 +22,12 @@
 }
 .container .settings {
   flex: 0.4; /* 40% of the container */
-  padding: 1rem;
+  padding: 0rem 1rem;
   height: 100%;
+  background-color: #839082;
 }
 .settings div {
+  margin-block-start: 2rem;
   margin-bottom: 1.25rem;
 }
 .settings div p {
@@ -74,6 +77,7 @@
   cursor: pointer;
   color: white;
 }
-.pattern{
-  color: yellow; 
+
+button:hover{
+  background-color: #606b60;
 }
