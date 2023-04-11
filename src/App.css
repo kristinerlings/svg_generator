@@ -1,5 +1,3 @@
-/*https://codepen.io/okke_harsta/pen/yOLjxW - Radio button */
-
 .app {
   background-color: #232823;
   height: 100vh;
@@ -15,15 +13,14 @@
   color: rgb(175, 193, 175);
   font-weight: 600;
 }
+
 .container {
-  background-color: rgb(240, 238, 238);
   display: flex;
-  width: 80%;
-  height: 37rem;
-  border: 0.125rem solid gray;
-  color: rgb(37, 39, 37);
-  font-size: 1.1rem;
+  flex-direction: row;
+  width: 70%;
+  background-color: white;
   border-radius: 0.6rem;
+  overflow: hidden;
 }
 
 .container svg {
@@ -96,4 +93,9 @@ button:hover {
 
 .pattern {
   background-color: pink;
+}
+
+
+.isActive {
+  color: red;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DownloadButton from './DownloadButton';
 import RadioGroup from './RadioGroup';
 import Slider from './Slider';
 
@@ -67,6 +68,7 @@ const Settings = ({
         >
           Reset
         </button>
+        <DownloadButton />
       </div>
     </div>
   );

@@ -40,7 +40,7 @@ function SvgDrawing({ parameter, randomY, randomX, style, animation }) {
   }, [style]); //dependency array - only re-render when style changes
 
   return (
-    <svg viewBox="0 0 550 500">
+    <svg viewBox="0 0 550 500" id="svg_og">
       <defs>
         <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="gray" />
