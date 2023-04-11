@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import Gallery from './routes/Gallery';
 import Error from './routes/Error';
+import Profile from './routes/Profile';
 import './css/reset.css';
 
 const router = createBrowserRouter([
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
         errorElement: <Error />,
         path: 'gallery',
         element: <Gallery />,
+      },
+      {
+        errorElement: <Error />,
+        path: 'profile',
+        element: <Profile />,
       },
     ],
   },
