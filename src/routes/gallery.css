@@ -1,0 +1,13 @@
+
+.container__images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.list__image {
+  width: 33.33%;
+  padding-block-start: 3rem;
+}

@@ -68,6 +68,7 @@ const Settings = ({
         >
           Reset
         </button>
+        <button style={{marginLeft: '4rem', backgroundColor: 'skyblue'}}>Save</button>
         <DownloadButton />
       </div>
     </div>

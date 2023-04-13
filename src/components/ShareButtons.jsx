@@ -5,7 +5,7 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from 'react-share';
-import './gallery.css';
+import './shareButtons.css';
 
 
 //social media share: https://www.npmjs.com/package/react-share

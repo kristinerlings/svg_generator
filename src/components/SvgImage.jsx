@@ -1,11 +1,26 @@
-import React from 'react'
+import React from 'react';
+import './../routes/gallery.css';
 
-function SvgImage() {
+function SvgImage({ blobImg }) {
   return (
-    <div>
-      <img src="https://unsplash.com/photos/eOcyhe5-9sQ" href="" />
-    </div>
+    <>
+      <li className="list__image">
+        {blobImg ? (
+          <img
+            src={blobImg.url}
+            alt=""
+            style={{ width: '250px', height: 'auto' }}
+          />
+        ) : (
+          <img
+            src="./../public/assets/SVG/b1.svg"
+            alt=""
+            style={{ width: '250px', height: 'auto' }}
+          /> //Default img if no img is found, maybe create Img not found?
+        )}
+      </li>
+    </>
   );
 }
 
-export default SvgImage
+export default SvgImage;

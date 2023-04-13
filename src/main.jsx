@@ -6,6 +6,7 @@ import Root from './routes/Root';
 import Gallery from './routes/Gallery';
 import Error from './routes/Error';
 import Profile from './routes/Profile';
+import { loader as galleryLoader } from './routes/Gallery';
 import './css/reset.css';
 
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       {
         errorElement: <Error />,
         path: 'gallery',
+        loader: galleryLoader,
         element: <Gallery />,
       },
       {

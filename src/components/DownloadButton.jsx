@@ -18,7 +18,11 @@ const DownloadButton = () => {
   };
 
   return (
-    <button className="download_button" onClick={downloadSVG}>
+    <button
+      className="download_button"
+      onClick={downloadSVG}
+      style={{ marginLeft: '.5rem' }}
+    >
       Download
     </button>
   );

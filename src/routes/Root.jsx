@@ -12,8 +12,8 @@ const Root = () => {
         <div
           className={`wrapper ${
             navigation.state === 'loading' ? 'loading' : ''
-          }`}
-        >
+          }`}>
+            
           <Outlet />
         </div>
       </main>

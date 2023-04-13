@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-/* import './Navbar.css'; */
+import './navbar.css';
 
 const Navbar = () => {
   return (
@@ -15,11 +15,11 @@ const Navbar = () => {
            Gallery
           </NavLink>
         </li>
-        {/* <li className="navbar__item">
+        <li className="navbar__item">
           <NavLink className="navbar__link" to="profile">
           Profile
           </NavLink>
-        </li> */}
+        </li> 
       </ul>
     </nav>
   );
