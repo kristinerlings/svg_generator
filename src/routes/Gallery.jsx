@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import SvgImage from '../components/SvgImage';
 import ShareButtons from '../components/ShareButtons';
 import { getImage } from './../../service';
@@ -23,18 +23,23 @@ if(!img) {
 }
 
   return (
-    <>
+    <div className="container__gallery">
+      <div className="gallery__title">
       <h2>Gallery</h2>
-      <div className="filters">
+      <h3>Lorem ipsum</h3>
+      </div>
+
+      <div className="filter">
        <fetcher.Form method="post"> 
         <label htmlFor="sort">Filter by:</label>
         <select id="sort" name="sort">
-          <option value=/* {favoriteId} */ "favourite}" >Favourites</option>
+          <option value=/* {favoriteId} */ "popularity" >Popularity</option>
           <option value=/* {latestDate} */"latest">Latest</option>
           <option value=/* {oldestDateId} */"oldest">Oldest</option>
         </select>
        </fetcher.Form> 
       </div>
+      
       <ul className="container__images">
         {img.map((img) => { 
           console.log(img)
@@ -42,10 +47,9 @@ if(!img) {
          <SvgImage key={img.id} blobImg={img} /> 
         )})
       }
-      
       </ul>
       <ShareButtons shareUrl={'http://dummyUrl.com'} />
-    </>
+    </div>
   );
 };
 

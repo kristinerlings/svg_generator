@@ -1,14 +1,13 @@
-
-
 .navbar {
   display: flex;
   align-items: center;
+  padding-block: 1rem; 
 }
 
-.navbar__list{
+.navbar__list {
   display: flex;
-/*   justify-content: space-around; */
-  gap: .5rem;
+  justify-content: space-around;
+  gap: 1rem;
   flex: 1;
   height: 100%;
 }
@@ -24,15 +23,12 @@
   align-items: center;
   text-decoration: none;
   width: 100%;
-  font-size: var(--fs-xl)
 }
 
-.navbar__link:hover{
-  color: orange; 
+.navbar__link:hover {
+  color: orange;
 }
 
-
-.navbar__link:active{
-  background-color: blue; 
+.navbar__link:active {
+  background-color: blue;
 }
-
