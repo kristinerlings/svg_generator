@@ -70,7 +70,6 @@ const getClassName = (view) => {
         </select>
        </fetcher.Form> 
       </div>
-      
       <ul className={`container__images ${getClassName(view)}`}>
         {img.map((img) => { 
           console.log(img)
