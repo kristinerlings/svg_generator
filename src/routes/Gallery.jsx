@@ -52,15 +52,14 @@ const getClassName = (view) => {
       </div>
       <div className="filter">
        <fetcher.Form method="post"> 
-        <label htmlFor="sort">View:</label>
+        <label htmlFor="sort">View Image Size:</label>
         <select id="sort" name="sort" value={view} onChange={(e) => setView(e.target.value)}>
-          <option value=/* {favoriteId} */ "two">2</option>
-          <option value=/* {latestDate} */"three">3</option>
-          <option value=/* {oldestDateId} */"four">4</option>
+          <option value=/* {oldestDateId} */"four">Small</option> 
+          <option value=/* {latestDate} */"three">Medium</option>
+          <option value=/* {favoriteId} */ "two">Big</option>
         </select>
        </fetcher.Form> 
       </div>
-
       <div className="filter">
        <fetcher.Form method="post"> 
         <label htmlFor="sort">Filter by:</label>
