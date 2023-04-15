@@ -12,14 +12,14 @@ const Navbar = () => {
         </li>
         <li className="navbar__item">
           <NavLink className="navbar__link" to="/svg_generator/gallery">
-           Gallery
+            Gallery
           </NavLink>
         </li>
         <li className="navbar__item">
-          <NavLink className="navbar__link" to="profile">
-          Profile
+          <NavLink className="navbar__link" to="/svg_generator/profile">
+            Profile
           </NavLink>
-        </li> 
+        </li>
       </ul>
     </nav>
   );

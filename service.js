@@ -15,7 +15,6 @@ const options = {
 //dont want to do it inside HOME component (it'll trigger re-render
 //USE LOADER - for each route I can specify loader  or action to process forms
 
-
 const getImage = async () => {
   const response = await fetch(
     `${API}/images/search?limit=10&mime_types=jpg`,
@@ -29,6 +28,12 @@ const getImage = async () => {
 //breed name for now
 const getUserName = async () => {
   const response = await fetch(`${API}/breeds?limit=50`, options);
+  const data = await response.json();
+  return data;
+};
+
+const getBlobImageById = async (imgId) => {
+  const response = await fetch(`${API}/images/${imgId}`, options);
   const data = await response.json();
   return data;
 };
@@ -82,6 +87,7 @@ const deleteFavourite = async (favoriteId) => {
 export {
   getImage,
   getUserName,
+  getBlobImageById,
   getAllFavorites,
   getSingleFavouriteRecordId,
   addFavourite,
