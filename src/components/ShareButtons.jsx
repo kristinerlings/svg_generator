@@ -6,13 +6,12 @@ import {
   TwitterIcon,
 } from 'react-share';
 import './shareButtons.css';
-
+import CopyLinkButton from './CopyLinkButton';
 
 //social media share: https://www.npmjs.com/package/react-share
-//copy link to clipboard: https://www.npmjs.com/package/react-copy-to-clipboard   todo
+//copy link to clipboard: https://www.npmjs.com/package/react-copy-to-clipboard
 
-
-function ShareButtons({shareUrl}) {
+function ShareButtons({ shareUrl }) {
   return (
     <div className="share__container">
       <FacebookShareButton
@@ -31,6 +30,8 @@ function ShareButtons({shareUrl}) {
       >
         <TwitterIcon size={32} round={false} borderRadius={10} />
       </TwitterShareButton>
+
+      <CopyLinkButton />
     </div>
   );
 }

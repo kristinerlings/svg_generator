@@ -66,8 +66,6 @@
   object-fit: cover;
 }
 
-
-
 /*Img-Details: username-likes-views*/
 .image__details {
   display: flex;
@@ -76,21 +74,25 @@
   width: 100%;
 }
 
-
-.image__details li, .details__right {
+.image__details li,
+.details__right {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-
 }
 
-/**/
-
-.btn__add {
+/*IMG HOVER buttons*/
+.img__buttons {
   position: absolute;
   z-index: 5;
   top: 1rem;
   right: 1rem;
+}
+
+.btn__add,
+.btn__like {
+  padding: 0.2rem;
+  margin: 0.1rem;
 }

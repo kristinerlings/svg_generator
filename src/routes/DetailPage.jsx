@@ -11,7 +11,6 @@ export const loader = async ({ params }) => {
 function DetailPage() {
   const blobImage  = useLoaderData();
   const navigate = useNavigate();
-  /*  const { blobImgId } = useParams(); //to fetch the image id from the url */
 
   return (
     <>

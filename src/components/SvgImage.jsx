@@ -46,9 +46,9 @@ function SvgImage({ blobImg, imgClassName }) {
           </li>
         </ul>
         {hover ? (
-          <div>
-            <button className="btn__add">add to collection</button>
-            <button className="btn__like">like</button>
+          <div className="img__buttons">
+            <button className="btn__add">add to collection</button> {/* //replace with add to collection component */}
+            <button className="btn__like">like</button> {/* //replace with heart icon / like component  */}
           </div>
         ) : null}
       </li>
