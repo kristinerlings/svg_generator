@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  padding-block: 1rem; 
+  padding-block: 1rem;
 }
 
 .navbar__list {
@@ -29,6 +29,7 @@
   color: orange;
 }
 
-.navbar__link:active {
-  background-color: blue;
+
+.navbar__link:focus {
+  font-weight: 700;
 }

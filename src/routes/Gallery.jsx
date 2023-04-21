@@ -78,7 +78,6 @@ const getClassName = (view) => {
         )})
       }
       </ul>
-      <ShareButtons shareUrl={'http://dummyUrl.com'} />
     </div>
   );
 };

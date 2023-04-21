@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './profile.css';
 
 function Profile() {
   const [active, setActive] = useState('personal');
@@ -21,24 +22,27 @@ function Profile() {
   };
 
   return (
-    <div>
+    <div className="profile__container">
       <section className="container__user">
         <h2 className="hidden">Profile</h2>
-        <div className="user__img">
+        <div className="user__info">
           <h3>UserNameHere</h3>
-          <img src="https://eu.ui-avatars.com/api/?name=John+Doe&size=250" />
+          <img className="img__profile" src="https://eu.ui-avatars.com/api/?name=John+Doe&size=250" />
         </div>
         <ul className="user__details">
-          <li>Member since: 01/01/01</li>
-          <li>Number of saved artworks: 5</li>
-          <li>Number of liked artworks: 52</li>
+          <li><span className="bold">Member since:</span> 01/01/01</li>
+          <li><span className="bold">Number of saved artworks:</span> 5</li>
+          <li><span className="bold">Number of liked artworks:</span> 52</li>
         </ul>
       </section>
       <section className="container__collection">
         <h2 className="hidden">Collection</h2>
         <button onClick={(e) => setActive('personal')}>Personal</button>
         <button onClick={(e) => setActive('collections')}>Collections</button>
-        <button onClick={(e) => setActive('appreciations')}>Appreciations</button>
+        <button onClick={(e) => setActive('appreciations')}>
+          Appreciations
+        </button>
+        <hr />
         {displayActive()}
       </section>
     </div>

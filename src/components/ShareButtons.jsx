@@ -6,10 +6,18 @@ import {
   TwitterIcon,
 } from 'react-share';
 import './shareButtons.css';
-import CopyLinkButton from './CopyLinkButton';
+import { FaLink } from 'react-icons/fa';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
 
 //social media share: https://www.npmjs.com/package/react-share
 //copy link to clipboard: https://www.npmjs.com/package/react-copy-to-clipboard
+
+//https://www.npmjs.com/package/react-copy-to-clipboard
+// text: required -> text to be copied to clipboard
+// onCopy: optional -> callback function to be executed when text is copied
+// result: boolean -> true if text is copied successfully
+// CopyToClipboard: simple wrapping component
 
 function ShareButtons({ shareUrl }) {
   return (
@@ -31,7 +39,11 @@ function ShareButtons({ shareUrl }) {
         <TwitterIcon size={32} round={false} borderRadius={10} />
       </TwitterShareButton>
 
-      <CopyLinkButton />
+      <CopyToClipboard /* onCopy={onCopy} */ text={window.location.href}>
+        <button className="btn__link">
+          <FaLink size={20} />
+        </button>
+      </CopyToClipboard>
     </div>
   );
 }

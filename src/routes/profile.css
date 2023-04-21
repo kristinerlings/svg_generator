@@ -1,0 +1,71 @@
+
+.bold{
+  font-weight: 700;
+}
+
+
+.profile__container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hidden{
+  display: none;
+}
+
+/**/
+.container__user {
+  display: flex;
+  padding: 4rem 0rem 5rem; 
+  gap: 1.5rem; 
+}
+
+.user__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.user__details li {
+  padding-block: .25rem; 
+}
+
+
+/* User img + name*/
+
+.user__info{
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.user__info h3{
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-block: 1rem;
+}
+
+.img__profile{
+  width: 10rem; 
+  border-radius: 80%; 
+}
+
+
+/* Container Collection*/
+.container__collection button{
+  margin-inline-end: 3rem; 
+  padding: .5rem 1.5rem 0rem; 
+  background: none;
+  border: none; 
+  font-size: 1.1rem; 
+}
+
+.container__collection button:hover{
+  cursor: pointer; 
+  opacity: 0.5; 
+}
+
+.container__collection button:focus{
+  font-weight: 700;
+}

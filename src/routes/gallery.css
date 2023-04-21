@@ -23,7 +23,7 @@
 .filter {
   display: flex;
   justify-content: flex-end;
-  margin-inline-end: 6rem;
+  padding-block-end: 0.6rem;
 }
 
 /**** images *****/
@@ -91,8 +91,3 @@
   right: 1rem;
 }
 
-.btn__add,
-.btn__like {
-  padding: 0.2rem;
-  margin: 0.1rem;
-}
