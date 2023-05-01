@@ -21,7 +21,7 @@ const DownloadButton = () => {
     <button
       className="download_button"
       onClick={downloadSVG}
-      style={{ marginLeft: '.5rem' }}
+      style={{ marginLeft: '.5rem', width:"5rem", height:"1.6rem" }}
     >
       Download
     </button>

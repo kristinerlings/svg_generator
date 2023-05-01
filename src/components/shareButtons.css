@@ -2,3 +2,8 @@
  margin-inline: .3rem;
 }
 
+.share__container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; 
+}

@@ -1,16 +1,55 @@
-
-
-
-
-
-/* Social media buttons */
-.btn__add,
-.btn__like,{
-  padding: 0.2rem;
-  margin: 0.1rem;
+.detailpage__container {
+  width: 75%;
+  margin: 0 auto;
 }
 
-.btn__link{
-  padding: 0.2rem; 
-  margin-bottom: 1rem; 
-} 
+.detailpage__content {
+  display: flex;
+}
+
+.img__detail {
+  height: 30rem;
+  width: auto;
+}
+
+.container__details {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.details__top {
+  display: flex;
+  justify-self: flex-end;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.details__bottom--left {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ath share__container in shareButtons.css */
+.btn__share {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.details__bottom--left li {
+  padding: 0.3rem 1rem;
+}
+
+.details__bottom--left li > svg,
+.details__username > svg {
+  margin-right: 0.2rem;
+}
+
+.details__username {
+  display: flex;
+}
