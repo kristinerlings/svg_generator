@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Settings from './components/Settings';
 import SvgDrawing from './components/SvgDrawing';
@@ -11,8 +11,10 @@ function App() {
 
   const [randomX, setRandomX] = useState(Math.round(Math.random() * 200));
   const [randomY, setRandomY] = useState(Math.round(Math.random() * 200));
+  const [galleryBlob, setGalleryBlob] = useState([]);
 
   const [style, setStyle] = useState('Solid');
+
 
   //Default value for reset button - random pos
   const setRandomPos = () => {
@@ -20,8 +22,18 @@ function App() {
     setRandomY(Math.round(Math.random() * 200));
   };
 
+
   const handleSave = () => {
-    console.log(randomX, randomY, animation);
+    const newGalleryBlob = galleryBlob ? [...galleryBlob] : [];
+    newGalleryBlob.push({
+      randomX,
+      randomY,
+      animation,
+      style,
+      distortionParameter,
+    });
+    setGalleryBlob(newGalleryBlob);
+    localStorage.setItem('galleryBlob', JSON.stringify(newGalleryBlob));
   };
 
   return (
@@ -33,7 +45,7 @@ function App() {
           style={style}
           randomY={randomY}
           randomX={randomX}
-          parameter={distortionParameter}
+          distortionParameter={distortionParameter}
         />
         <Settings
           setAnimation={setAnimation}

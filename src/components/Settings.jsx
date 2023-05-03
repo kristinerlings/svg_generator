@@ -30,6 +30,13 @@ const Settings = ({
     },
   ];
 
+  const reset = () => {
+    updateParameter(defaultParameter);
+    setRandomPos();
+    setStyle('Solid');
+    setAnimation('0deg');
+  };
+
   return (
     <div className="settings">
       <div>
@@ -59,16 +66,7 @@ const Settings = ({
         />
       </div>
       <div className="resetContainer">
-        <button
-          onClick={(e) => {
-            updateParameter(defaultParameter);
-            setRandomPos();
-            setStyle('Solid');
-            setAnimation('0deg');
-          }}
-        >
-          Reset
-        </button>
+        <button onClick={reset}>Reset</button>
         <button
           onClick={handleSave}
           style={{ marginLeft: '4rem', backgroundColor: 'skyblue' }}
