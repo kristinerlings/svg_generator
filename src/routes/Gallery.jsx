@@ -19,14 +19,14 @@ const Gallery = () => {
  const img = useLoaderData(); 
 const fetcher = useFetcher();
 const [view, setView] = useState('three');
-
+/* 
 useEffect(() => {
   console.log('view', view)
 }, [view])
 
 if(!img) {
   return <div>Loading...</div>
-}
+} */
 
 const getClassName = (view) => {
   switch (view) {

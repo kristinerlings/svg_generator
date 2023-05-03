@@ -10,6 +10,7 @@ const Settings = ({
   style,
   setStyle,
   setAnimation,
+  handleSave,
 }) => {
   const defaultParameter = {
     distortion: 0,
@@ -68,7 +69,12 @@ const Settings = ({
         >
           Reset
         </button>
-        <button style={{marginLeft: '4rem', backgroundColor: 'skyblue'}}>Save</button>
+        <button
+          onClick={handleSave}
+          style={{ marginLeft: '4rem', backgroundColor: 'skyblue' }}
+        >
+          Save
+        </button>
         <DownloadButton />
       </div>
     </div>

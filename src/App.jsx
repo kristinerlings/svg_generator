@@ -4,7 +4,7 @@ import Settings from './components/Settings';
 import SvgDrawing from './components/SvgDrawing';
 
 function App() {
-  const [animation, setAnimation] = useState("0deg");
+  const [animation, setAnimation] = useState('0deg');
   const [distortionParameter, setDistortionParameter] = useState({
     distortion: 0,
   });
@@ -20,11 +20,21 @@ function App() {
     setRandomY(Math.round(Math.random() * 200));
   };
 
+  const handleSave = () => {
+    console.log(randomX, randomY, animation);
+  };
+
   return (
     <div className="app">
       <h1 className="title">Blob Generator</h1>
       <div className="container">
-        <SvgDrawing animation={animation} style={style} randomY={randomY} randomX={randomX} parameter={distortionParameter} />
+        <SvgDrawing
+          animation={animation}
+          style={style}
+          randomY={randomY}
+          randomX={randomX}
+          parameter={distortionParameter}
+        />
         <Settings
           setAnimation={setAnimation}
           setRandomPos={setRandomPos}
@@ -32,6 +42,7 @@ function App() {
           updateParameter={setDistortionParameter}
           style={style}
           setStyle={setStyle}
+          handleSave={handleSave}
         />
       </div>
     </div>
