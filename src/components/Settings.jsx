@@ -4,17 +4,15 @@ import RadioGroup from './RadioGroup';
 import Slider from './Slider';
 
 const Settings = ({
-  parameter,
-  updateParameter,
+  distortionParameter,
+  setDistortionParameter,
   setRandomPos,
   style,
   setStyle,
   setAnimation,
   handleSave,
 }) => {
-  const defaultParameter = {
-    distortion: 0,
-  };
+  const defaultParameter = 0;
   const options = [
     {
       text: 'Solid',
@@ -31,7 +29,7 @@ const Settings = ({
   ];
 
   const reset = () => {
-    updateParameter(defaultParameter);
+    setDistortionParameter(defaultParameter);
     setRandomPos();
     setStyle('Solid');
     setAnimation('0deg');
@@ -56,13 +54,8 @@ const Settings = ({
           min={0}
           max={100}
           label={'Distortion'}
-          value={parameter.distortion}
-          setValue={(newDistort) =>
-            updateParameter((parameter) => ({
-              ...parameter,
-              distortion: newDistort,
-            }))
-          }
+          value={distortionParameter}
+          setValue={(newDistort) => setDistortionParameter(newDistort)}
         />
       </div>
       <div className="resetContainer">

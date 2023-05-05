@@ -1,20 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Settings from './components/Settings';
 import SvgDrawing from './components/SvgDrawing';
+import { useLoaderData } from 'react-router-dom';
+import { addGallery, getGalleries } from './galleryServer';
+
+export async function loader() {
+  const galleries = await getGalleries();
+  if (!galleries) {
+    throw new Response('', {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
+  console.log(galleries);
+  return galleries;
+}
+
+export async function action() {
+  const galleries = await addGallery();
+  return galleries;
+}
 
 function App() {
   const [animation, setAnimation] = useState('0deg');
-  const [distortionParameter, setDistortionParameter] = useState({
+  const [distortionParameter, setDistortionParameter] = useState(0);
+  /*   const [distortionParameter, setDistortionParameter] = useState({
     distortion: 0,
-  });
+  }); */
+  const galleryBlob = useLoaderData();
 
   const [randomX, setRandomX] = useState(Math.round(Math.random() * 200));
   const [randomY, setRandomY] = useState(Math.round(Math.random() * 200));
-  const [galleryBlob, setGalleryBlob] = useState([]);
 
   const [style, setStyle] = useState('Solid');
-
 
   //Default value for reset button - random pos
   const setRandomPos = () => {
@@ -22,18 +41,14 @@ function App() {
     setRandomY(Math.round(Math.random() * 200));
   };
 
-
-  const handleSave = () => {
-    const newGalleryBlob = galleryBlob ? [...galleryBlob] : [];
-    newGalleryBlob.push({
+  const handleSave = async () => {
+    await addGallery({
       randomX,
       randomY,
       animation,
       style,
       distortionParameter,
     });
-    setGalleryBlob(newGalleryBlob);
-    localStorage.setItem('galleryBlob', JSON.stringify(newGalleryBlob));
   };
 
   return (
@@ -50,8 +65,8 @@ function App() {
         <Settings
           setAnimation={setAnimation}
           setRandomPos={setRandomPos}
-          parameter={distortionParameter}
-          updateParameter={setDistortionParameter}
+          distortionParameter={distortionParameter}
+          setDistortionParameter={setDistortionParameter}
           style={style}
           setStyle={setStyle}
           handleSave={handleSave}

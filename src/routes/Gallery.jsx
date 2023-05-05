@@ -20,7 +20,7 @@ export async function loader({ params }) {
 }
 
 const Gallery = () => {
-/*   const img = useLoaderData(); */
+  /*   const img = useLoaderData(); */
   const fetcher = useFetcher();
   const [view, setView] = useState('three');
   const galleryBlobImgs = useLoaderData();

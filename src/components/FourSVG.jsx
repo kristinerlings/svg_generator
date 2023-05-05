@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { colors } from './SvgDrawing';
 
+//action
+//catch the submit button
+//1. (handle submit) 2.submit the formdata{method:post} that has catched
+
 function FourSVG({ randomX, randomY, animation, style }) {
   //Fill color for each shape
   const [fill1, setFill1] = useState();
@@ -89,8 +93,7 @@ function FourSVG({ randomX, randomY, animation, style }) {
         />
         <path
           className="cls-2"
-          d={`m${xCoord[0] - 16},${
-            yCoord[0] - 12
+          d={`m216,212
           }c-90.37,5.19-126.13,28.84-137.34,38.78-4.89,4.34-10.1,8.31-15.61,11.84-117.58,75.19-103.01,3.21-129.91-77.48-15.98-47.94,2.88-92.37,21.73-121.41,16.66-25.67,42.21-44.39,71.78-52.29,28.62-7.64,67.4-10.77,104.63,9.47,71.49,38.86,116.49,4.44,172.1,46.8,55.6,42.36,27.8,137.67-87.37,144.29Z`}
           fill={'none'}
           stroke={'#636363'}

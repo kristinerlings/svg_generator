@@ -3,24 +3,29 @@ import FourSVG from './FourSVG';
 
 const colors = ['#d2bca9', '#8eb6bc', '#d2dbd7', '#bec4aa'];
 
-function SvgDrawing({ distortionParameter, randomY, randomX, style, animation }) {
+function SvgDrawing({
+  distortionParameter,
+  randomY,
+  randomX,
+  style,
+  animation,
+}) {
   return (
     <svg viewBox="0 0 800 800" id="svg_og">
-
       {/* distortion filter  */}
       <filter id="displacementFilter">
         <feTurbulence
           type="turbulence"
-          baseFrequency={(101 - distortionParameter.distortion) / 100}
+          baseFrequency={(101 - distortionParameter) / 100}
           // calculate numOctaves based on distortion value
-          numOctaves={Math.round(distortionParameter.distortion)}
-          seed={distortionParameter.distortion}
+          numOctaves={Math.round(distortionParameter)}
+          seed={distortionParameter}
           result="turbulence"
         />
         <feDisplacementMap
           in2="turbulence"
           in="SourceGraphic"
-          scale={distortionParameter.distortion}
+          scale={distortionParameter}
           xChannelSelector="R"
           yChannelSelector="G"
         />
@@ -31,7 +36,6 @@ function SvgDrawing({ distortionParameter, randomY, randomX, style, animation })
         animation={animation}
         style={style}
       />
-    
     </svg>
   );
 }

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         path: 'detail/:blobId',
         element: <DetailPage />,
         loader: detailLoader,
-      //  action: catAction, 
+        //  action: catAction,
       },
     ],
   },
