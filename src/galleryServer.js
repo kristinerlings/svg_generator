@@ -2,6 +2,8 @@ export async function getGalleries() {
   /*const response = await fetch('/galleries');
     return await response.json();*/
 
+    
+
   const galleryBlob = await localStorage.getItem('galleryBlob');
   const galleryBlobParsed = JSON.parse(galleryBlob);
   //console.log('galleryBlobParsed', galleryBlobParsed);
