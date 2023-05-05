@@ -75,7 +75,7 @@ const Gallery = () => {
       <ul className={`container__images ${getClassName(view)}`}>
         {galleryBlobImgs?.map((galleryImg, i) => (
           <SvgImage key={i} blobSvg={galleryImg} />
-        ))}
+        ))} 
       </ul>
     </div>
   );

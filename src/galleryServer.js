@@ -1,8 +1,11 @@
+import sortBy from 'sort-by';
+import { graphQLRequest } from './graphql.js';
+
 export async function getGalleries() {
   /*const response = await fetch('/galleries');
     return await response.json();*/
 
-    //
+  //
 
   const galleryBlob = await localStorage.getItem('galleryBlob');
   const galleryBlobParsed = JSON.parse(galleryBlob);

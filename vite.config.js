@@ -5,4 +5,13 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: 'svg_generator',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://svg-server.ddev.site', //local ->
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });
