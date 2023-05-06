@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import DownloadButton from './DownloadButton';
 import RadioGroup from './RadioGroup';
 import Slider from './Slider';
+import { Form, useLoaderData, redirect, useNavigate } from 'react-router-dom';
 
-//action is the function that handles and sends all of the id's of the artwork and updates (object) of all of my values that i have.. it sends it to /GALLERYSERVICE) function that goes straight to craft.  . in 
+//action is the function that handles and sends all of the id's of the artwork and updates (object) of all of my values that i have.. it sends it to /GALLERYSERVICE) function that goes straight to craft.  . in
 //
-
 
 const Settings = ({
   distortionParameter,
@@ -40,46 +40,43 @@ const Settings = ({
   };
 
   return (
-    <Form action="post">
-      <div className="settings">
-        <div>
-          <p>Rotation</p>
-          <select
-            name="animation"
-            onChange={(e) => setAnimation(e.target.value)}
-          >
-            <option value="0deg">No rotation</option>
-            <option value="45deg">45 Deg Rotate</option>
-            <option value="-10deg">-10 Deg Rotate</option>
-          </select>
-        </div>
-        <div>
-          <p>Style</p>
-          <RadioGroup style={style} options={options} />
-        </div>
-        <div>
-          <Slider
-            min={0}
-            max={100}
-            label={'Distortion'}
-            value={distortionParameter}
-            setValue={(newDistort) => setDistortionParameter(newDistort)}
-            name="distortion"
-          />
-        </div>
-        <div className="resetContainer">
-          <button onClick={reset}>Reset</button>
-          <button
-          type="submit"
-            onClick={handleSave}
-            style={{ marginLeft: '4rem', backgroundColor: 'skyblue' }}
-          >
-            Save
-          </button>
-          <DownloadButton />
-        </div>
+    /*    <Form action="post" className="settings"> */
+    <div className="settings">
+      <div>
+        <p>Rotation</p>
+        <select name="animation" onChange={(e) => setAnimation(e.target.value)}>
+          <option value="0deg">No rotation</option>
+          <option value="45deg">45 Deg Rotate</option>
+          <option value="-10deg">-10 Deg Rotate</option>
+        </select>
       </div>
-    </Form>
+      <div>
+        <p>Style</p>
+        <RadioGroup style={style} options={options} />
+      </div>
+      <div>
+        <Slider
+          min={0}
+          max={100}
+          label={'Distortion'}
+          value={distortionParameter}
+          setValue={(newDistort) => setDistortionParameter(newDistort)}
+          name="distortion"
+        />
+      </div>
+      <div className="resetContainer">
+        <button onClick={reset}>Reset</button>
+        <button
+          type="submit"
+          onClick={handleSave}
+          style={{ marginLeft: '4rem', backgroundColor: 'skyblue' }}
+        >
+          Save
+        </button>
+        <DownloadButton />
+      </div>
+    </div>
+    /*     </Form> */
   );
 };
 
