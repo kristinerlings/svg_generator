@@ -23,7 +23,8 @@ export async function action({ request, params }) {
   let formData = await request.formData();
   const updates = Object.fromEntries(formData);
   console.log('updates', updates);
-  await addGallery(updates);
+  await addGallery(params.blobId, updates);
+  return redirect(`/svg_generator/gallery/${params.blobId}`);
 
   //return redirect(`/svg_generator/gallery/${params.svgBlobId}`);
   /* const galleries = await addGallery(formData); */

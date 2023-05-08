@@ -60,15 +60,15 @@ export async function addGallery(updates) {
     await graphQLRequest(graphQlQuery, { id: id, ...updates })
   ).data.save_artworks_savedartwork_Entry; */
 
-   const {newGalleryBlob} = (
-     await graphQLRequest(graphQlQuery, {
-       style: ' f',
-       randomy: '1',
-       randomx: ' 2',
-       distortion: ' f',
-       animation: toString('helllo'),
-     })
-   ).data.save_artworks_savedartwork_Entry; 
+  const { newGalleryBlob } = (
+    await graphQLRequest(graphQlQuery, {
+      style: ' f',
+      randomy: '1',
+      randomx: ' 2',
+      distortion: ' f',
+      animation: toString('helllo'),
+    })
+  ).data.save_artworks_savedartwork_Entry;
 
   /* const newGalleryBlob = (
     await graphQLRequest(graphQlQuery, {
@@ -114,4 +114,26 @@ export async function addGallery(updates) {
   //await localStorage.setItem('galleryBlob', JSON.stringify(newGalleryBlob));
 
   // return newGalleryBlob;
+}
+
+export async function getBlobById(id) {
+  const graphqlQuery = `query GetBlobByIdQuery($id:[QueryArgument]) {
+  artworksEntries(id:$id) {
+    ... on artworks_savedartwork_Entry {
+      id
+      style
+      title
+      randomy
+      randomx
+      distortion
+      animation
+    }
+  }
+}
+`;
+
+  const blobId = (await graphQLRequest(graphqlQuery, { id })).data
+    .artworksEntries[0]; //want to await first and after that's been executed, then it enters the data.entr...
+  console.log(JSON.stringify(blobId, null, 2)); //add some formatting to the json structure it logs
+  return blobId ?? null;
 }

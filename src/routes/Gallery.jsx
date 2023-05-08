@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SvgImage from '../components/SvgImage';
 import ShareButtons from '../components/ShareButtons';
-import { getImage } from './../../service';
+/* import { getImage } from './../../service'; */
 import { FacebookIcon } from 'react-share';
 import { useFetcher, useLoaderData } from 'react-router-dom';
 import './gallery.css';

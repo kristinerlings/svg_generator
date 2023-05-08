@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BsHeartFill, BsHeart, BsEyeFill, BsPersonFill } from 'react-icons/bs';
 import SvgDrawing from './SvgDrawing';
 
+
 function SvgImage({ blobSvg, imgClassName }) {
   const { randomX, randomY, animation, style, distortionParameter } = blobSvg;
 
