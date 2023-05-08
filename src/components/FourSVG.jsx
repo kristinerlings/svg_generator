@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { colors } from './SvgDrawing';
 
-//action
-//catch the submit button
-//1. (handle submit) 2.submit the formdata{method:post} that has catched
 
 function FourSVG({ randomX, randomY, animation, style }) {
   //Fill color for each shape

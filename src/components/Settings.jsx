@@ -2,19 +2,8 @@ import React, { useState } from 'react';
 import DownloadButton from './DownloadButton';
 import RadioGroup from './RadioGroup';
 import Slider from './Slider';
-import * as fetcher from 'react-router-dom';
-import { addGallery } from './../galleryCommunicator.js';
+import { Form } from 'react-router-dom';
 
-import {
-  Form,
-  useFetcher,
-  useLoaderData,
-  redirect,
-  useNavigate,
-} from 'react-router-dom';
-
-//action is the function that handles and sends all of the id's of the artwork and updates (object) of all of my values that i have.. it sends it to /GALLERYSERVICE) function that goes straight to craft.  . in
-//
 
 const Settings = ({
   distortionParameter,
@@ -83,35 +72,35 @@ const Settings = ({
             type="text"
             name="animation"
             value={animation}
-            /*  hidden */
+            hidden 
           />
           <input
             onChange={() => console.log('cannot change randomx')}
             type="text"
             name="randomx"
             value={randomX}
-            /*      hidden */
+            hidden 
           />
           <input
             onChange={() => console.log('cannot change randomy')}
             type="text"
             name="randomy"
             value={randomY}
-            /*          hidden */
+            hidden 
           />
           <input
             onChange={() => console.log('cannot change distortion')}
             type="text"
             name="distortion"
             value={distortionParameter}
-            /*     hidden */
+            hidden
           />
           <input
             onChange={() => console.log('cannot change style')}
             type="text"
             name="style"
             value={style}
-            /*           hidden */
+            hidden 
           />
           <button
             type="submit"

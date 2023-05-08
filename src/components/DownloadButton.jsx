@@ -3,18 +3,17 @@ import React from 'react';
 const DownloadButton = () => {
   const downloadSVG = () => {
     const svg = document.getElementById('svg_og');
-    const svgData = new XMLSerializer().serializeToString(svg); //convert the SVG element into a string that can be downloaded as a file
+    const svgData = new XMLSerializer().serializeToString(svg); 
     const svgBlob = new Blob([svgData], {
-      //create a new blob object from the svgData string
-      type: 'image/svg+xml;charset=utf-8', //set it to MIME/Media/Content type - describes the the content format
+      type: 'image/svg+xml;charset=utf-8',
     });
-    const svgUrl = URL.createObjectURL(svgBlob); // creates a URL for my svgBlob object -> this URL can be used to download the SVG file 
+    const svgUrl = URL.createObjectURL(svgBlob); 
     const downloadLink = document.createElement('a');
     downloadLink.href = svgUrl;
-    downloadLink.download = 'svg_og.svg'; //name of the file to be downloaded + id of the svg element
+    downloadLink.download = 'svg_og.svg';
     document.body.appendChild(downloadLink);
-    downloadLink.click(); //tiggers the click event -to download the file
-    document.body.removeChild(downloadLink); // removes the download link from the DOM once the file has been downloaded. This is to prevent the user from downloading the same file multiple times and to avoid cluttering.
+    downloadLink.click();
+    document.body.removeChild(downloadLink); 
   };
 
   return (

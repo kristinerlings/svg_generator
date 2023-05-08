@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import SvgImage from '../components/SvgImage';
-import ShareButtons from '../components/ShareButtons';
-/* import { getImage } from './../../service'; */
-import { FacebookIcon } from 'react-share';
 import { useFetcher, useLoaderData } from 'react-router-dom';
 import './gallery.css';
-import { useEffect } from 'react';
 import { getGalleries } from '../galleryCommunicator';
 
-export async function loader({ params/* , data */ }) {
+export async function loader({ params}) {
   const galleries = await getGalleries();
   if (!galleries) {
     throw new Response('', {
@@ -20,7 +16,6 @@ export async function loader({ params/* , data */ }) {
 }
 
 const Gallery = () => {
-  /*   const img = useLoaderData(); */
   const fetcher = useFetcher();
   const [view, setView] = useState('three');
   const galleryBlobImgs = useLoaderData();

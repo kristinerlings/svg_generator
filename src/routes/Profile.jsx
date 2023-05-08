@@ -62,8 +62,3 @@ const ImgAlbums = () => {
 const ImgAppreciations = () => {
   return <div>Appreciations Component</div>;
 };
-
-//create reactive component to show the images (reuse in every component)
-
-//create a component for albums and then re-use if clicked (same from above)
-//create a logic for it-> if clicked on album, show the images of the album (+ backbutton?)a

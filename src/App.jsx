@@ -5,19 +5,6 @@ import SvgDrawing from './components/SvgDrawing';
 import { useLoaderData } from 'react-router-dom';
 import { addGallery, getGalleries } from './galleryCommunicator';
 
-/* import { Form, useFetcher} from "react-router-dom"; */
-
-/* export async function loader() {
-  const galleries = await getGalleries();
-  if (!galleries) {
-    throw new Response('', {
-      status: 404,
-      statusText: 'Not Found',
-    });
-  }
-  console.log(galleries);
-  return galleries;
-} */
 
 export async function action({ request, params }) {
   let formData = await request.formData();
@@ -25,17 +12,11 @@ export async function action({ request, params }) {
   console.log('updates', updates);
   await addGallery(params.blobId, updates);
   return redirect(`/svg_generator/gallery/${params.blobId}`);
-
-  //return redirect(`/svg_generator/gallery/${params.svgBlobId}`);
-  /* const galleries = await addGallery(formData); */
-  /*   return galleries; */
 }
 
 function App() {
   const [animation, setAnimation] = useState('0deg');
   const [distortionParameter, setDistortionParameter] = useState(0);
-  /*   const galleryBlob = useLoaderData(); */
-  /*   console.log('galleryBlob', galleryBlob); */
   const artBlob = useLoaderData();
   console.log(artBlob);
 
@@ -72,7 +53,6 @@ function App() {
           randomY={randomY}
           animation={animation}
           artBlob={artBlob}
-          /*  galleryBlob={galleryBlob} */
         />
       </div>
     </div>

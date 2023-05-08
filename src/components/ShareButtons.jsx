@@ -9,15 +9,10 @@ import './shareButtons.css';
 import { FaLink } from 'react-icons/fa';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-
 //social media share: https://www.npmjs.com/package/react-share
 //copy link to clipboard: https://www.npmjs.com/package/react-copy-to-clipboard
-
 //https://www.npmjs.com/package/react-copy-to-clipboard
-// text: required -> text to be copied to clipboard
-// onCopy: optional -> callback function to be executed when text is copied
-// result: boolean -> true if text is copied successfully
-// CopyToClipboard: simple wrapping component
+
 
 function ShareButtons({ shareUrl }) {
   return (
@@ -27,7 +22,6 @@ function ShareButtons({ shareUrl }) {
         hashtag={'#dummy text'}
         className="share__icon"
       >
-           
         <FacebookIcon size={32} round={false} borderRadius={10} />
       </FacebookShareButton>
 
