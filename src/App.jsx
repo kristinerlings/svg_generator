@@ -3,9 +3,11 @@ import './App.css';
 import Settings from './components/Settings';
 import SvgDrawing from './components/SvgDrawing';
 import { useLoaderData } from 'react-router-dom';
-import { addGallery, getGalleries } from './galleryServer';
+import { addGallery, getGalleries } from './galleryCommunicator';
 
-export async function loader() {
+/* import { Form, useFetcher} from "react-router-dom"; */
+
+/* export async function loader() {
   const galleries = await getGalleries();
   if (!galleries) {
     throw new Response('', {
@@ -15,20 +17,26 @@ export async function loader() {
   }
   console.log(galleries);
   return galleries;
-}
+} */
 
-export async function action() {
-  const galleries = await addGallery();
-  return galleries;
+export async function action({ request, params }) {
+  let formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  console.log('updates', updates);
+  await addGallery(updates);
+
+  //return redirect(`/svg_generator/gallery/${params.svgBlobId}`);
+  /* const galleries = await addGallery(formData); */
+  /*   return galleries; */
 }
 
 function App() {
   const [animation, setAnimation] = useState('0deg');
   const [distortionParameter, setDistortionParameter] = useState(0);
-  /*   const [distortionParameter, setDistortionParameter] = useState({
-    distortion: 0,
-  }); */
-  const galleryBlob = useLoaderData();
+  /*   const galleryBlob = useLoaderData(); */
+  /*   console.log('galleryBlob', galleryBlob); */
+  const artBlob = useLoaderData();
+  console.log(artBlob);
 
   const [randomX, setRandomX] = useState(Math.round(Math.random() * 200));
   const [randomY, setRandomY] = useState(Math.round(Math.random() * 200));
@@ -39,16 +47,6 @@ function App() {
   const setRandomPos = () => {
     setRandomX(Math.round(Math.random() * 200));
     setRandomY(Math.round(Math.random() * 200));
-  };
-
-  const handleSave = async () => {
-    await addGallery({
-      randomX,
-      randomY,
-      animation,
-      style,
-      distortionParameter,
-    });
   };
 
   return (
@@ -65,11 +63,15 @@ function App() {
         <Settings
           setAnimation={setAnimation}
           setRandomPos={setRandomPos}
-          distortionParameter={distortionParameter}
           setDistortionParameter={setDistortionParameter}
-          style={style}
           setStyle={setStyle}
-          handleSave={handleSave}
+          style={style}
+          distortionParameter={distortionParameter}
+          randomX={randomX}
+          randomY={randomY}
+          animation={animation}
+          artBlob={artBlob}
+          /*  galleryBlob={galleryBlob} */
         />
       </div>
     </div>

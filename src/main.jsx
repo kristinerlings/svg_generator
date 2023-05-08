@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App, {action as appAction} from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
-import Gallery from './routes/Gallery';
+import Gallery /* , { action as galleryAction } */ from './routes/Gallery';
 import Error from './routes/Error';
 import Profile from './routes/Profile';
 import DetailPage from './routes/DetailPage';
-import { loader as galleryLoader } from './routes/Gallery';
-import { loader as detailLoader } from './routes/DetailPage';
+import {
+  loader as galleryLoader,
+  /*   action as galleryAction, */
+} from './routes/Gallery';
+import {
+  loader as detailLoader,
+  /*  action as detailAction, */
+} from './routes/DetailPage';
 import './css/reset.css';
 
 const router = createBrowserRouter([
@@ -21,12 +27,14 @@ const router = createBrowserRouter([
         errorElement: <Error />,
         index: true,
         element: <App />,
+        action: appAction,
       },
       {
         errorElement: <Error />,
         path: 'gallery',
-        loader: galleryLoader,
         element: <Gallery />,
+        loader: galleryLoader,
+        /*    action: galleryAction, */
       },
       {
         errorElement: <Error />,
@@ -38,9 +46,11 @@ const router = createBrowserRouter([
         path: 'detail/:blobId',
         element: <DetailPage />,
         loader: detailLoader,
-        //  action: catAction,
+        /* action: detailAction, */
       },
     ],
+    /*  action: rootAction,  */
+    /* loader: rootLoader, */
   },
 ]);
 

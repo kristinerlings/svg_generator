@@ -18,13 +18,13 @@ function SvgImage({ blobSvg, imgClassName }) {
   return (
     <>
       <li className={`list__image`}>
-        <Link to={`/svg_generator/detail/1`}>
+        <Link to={`/svg_generator/detail/${blobSvg.id}`}>
           <SvgDrawing
-            randomX={randomX}
-            randomY={randomY}
-            animation={animation}
-            style={style}
-            distortionParameter={distortionParameter}
+            randomX={blobSvg.randomX}
+            randomY={blobSvg.randomY}
+            animation={blobSvg.animation}
+            style={blobSvg.style}
+            distortionParameter={blobSvg.distortionParameter}
             //onMouseEnter={handleHoverImage}
             // onMouseLeave={handleHoverImageLeave}
           />

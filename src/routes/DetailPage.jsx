@@ -9,9 +9,16 @@ import DownloadButton from './../components/DownloadButton';
 
 export const loader = async ({ params }) => {
   console.log('params', params);
-  const blobImage = await getBlobImageById(params.blobId);
+  const blobImage = await getBlobImageById(params.id);
   return blobImage;
 };
+
+/* export const action = async ({ request, params }) => {
+  let formData = await request.formData();
+  return updateContact(params.contactId, {
+    favorite: formData.get('favorite') === 'true',
+  });
+} */
 
 function DetailPage() {
   const blobImage = useLoaderData();

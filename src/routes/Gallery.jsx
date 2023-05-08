@@ -6,9 +6,9 @@ import { FacebookIcon } from 'react-share';
 import { useFetcher, useLoaderData } from 'react-router-dom';
 import './gallery.css';
 import { useEffect } from 'react';
-import { getGalleries } from '../galleryServer';
+import { getGalleries } from '../galleryCommunicator';
 
-export async function loader({ params }) {
+export async function loader({ params/* , data */ }) {
   const galleries = await getGalleries();
   if (!galleries) {
     throw new Response('', {
@@ -75,7 +75,7 @@ const Gallery = () => {
       <ul className={`container__images ${getClassName(view)}`}>
         {galleryBlobImgs?.map((galleryImg, i) => (
           <SvgImage key={i} blobSvg={galleryImg} />
-        ))} 
+        ))}
       </ul>
     </div>
   );
